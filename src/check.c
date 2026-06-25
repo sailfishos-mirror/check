@@ -574,6 +574,11 @@ const char *tr_tcname(TestResult * tr)
     return tr->tcname;
 }
 
+const char *tr_tname(TestResult * tr)
+{
+    return tr->tname;
+}
+
 static enum fork_status _fstat = CK_FORK;
 
 void set_fork_status(enum fork_status fstat)

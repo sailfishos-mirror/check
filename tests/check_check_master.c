@@ -605,6 +605,18 @@ START_TEST(test_check_tcnames)
 }
 END_TEST
 
+START_TEST(test_check_tnames)
+{
+  const char *tname;
+  tname = tr_tname(tr_all_array[_i]);
+  if (strcmp(tname, master_tests[_i].test_name) != 0) {
+    ck_abort_msg("Expected '%s', got '%s' for test %d:%s",
+         master_tests[_i].test_name, tname,
+         _i, master_tests[_i].test_name);
+  }
+}
+END_TEST
+
 START_TEST(test_check_test_names)
 {
   int i;
@@ -742,6 +754,7 @@ Suite *make_master_suite (void)
   tcase_add_test (tc_core, test_check_failure_lfiles);
   tcase_add_test (tc_core, test_check_test_names);
   tcase_add_loop_test (tc_core, test_check_tcnames, 0, sub_ntests);
+  tcase_add_loop_test (tc_core, test_check_tnames, 0, sub_ntests);
   tcase_add_loop_test (tc_core, test_check_all_msgs, 0, sub_ntests);
   tcase_add_loop_test (tc_core, test_check_all_ftypes, 0, nr_of_master_tests);
   tcase_add_unchecked_fixture(tc_fixture, test_fixture_setup,
