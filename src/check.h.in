@@ -1944,6 +1944,17 @@ CK_DLL_EXP const char *CK_EXPORT tr_lfile(TestResult * tr);
 CK_DLL_EXP const char *CK_EXPORT tr_tcname(TestResult * tr);
 
 /**
+ * Retrieve test name in which a failure occurred, if applicable.
+ *
+ * @return If the test resulted in a failure, returns a string
+ *          containing the name of the test where the failure
+ *          occurred; otherwise returns NULL.
+ *
+ * @since 0.15.3
+ */
+CK_DLL_EXP const char *CK_EXPORT tr_tname(TestResult * tr);
+
+/**
  * Creates a suite runner for the given suite.
  *
  * Once created, additional suites can be added to the
@@ -2127,7 +2138,8 @@ CK_DLL_EXP TestResult **CK_EXPORT srunner_failures(SRunner * sr);
  * failures due to setup function failure.
  *
  * Information about individual results can be queried using:
- * tr_rtype(), tr_ctx(), tr_msg(), tr_lno(), tr_lfile(), and tr_tcname().
+ * tr_rtype(), tr_ctx(), tr_msg(), tr_lno(), tr_lfile(), tr_name(),
+ * and tr_tcname().
  *
  * Memory is malloc'ed and must be freed; however free the entire structure
  * instead of individual test cases.
