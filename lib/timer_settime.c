@@ -20,6 +20,10 @@
 
 #include "libcompat.h"
 
+#if defined(HAVE_DECL_ALARM)
+#include <unistd.h>
+#endif
+
 int timer_settime(timer_t timerid CK_ATTRIBUTE_UNUSED,
                   int flags CK_ATTRIBUTE_UNUSED,
                   const struct itimerspec *new_value,
