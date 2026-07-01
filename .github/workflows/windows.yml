@@ -20,7 +20,7 @@ jobs:
       run: mkdir build
     - name: cmake configure
       working-directory: build
-      run: cmake -G "Visual Studio 16 2019" -DCMAKE_INSTALL_PREFIX=%P% -DCMAKE_BUILD_TYPE=Debug ..
+      run: cmake -G "Visual Studio 18 2026" -DCMAKE_INSTALL_PREFIX=%P% -DCMAKE_BUILD_TYPE=Debug ..
     - name: vs build
       working-directory: build
       run: msbuild /p:Platform=x64 "ALL_BUILD.vcxproj"
