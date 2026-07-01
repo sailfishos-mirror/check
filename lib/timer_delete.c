@@ -38,7 +38,7 @@ int timer_delete(timer_t timerid CK_ATTRIBUTE_UNUSED)
     interval.it_interval.tv_usec = 0;
 
     return setitimer(ITIMER_REAL, &interval, NULL);
-#elif defined(HAVE_ALARM)
+#elif defined(HAVE_DECL_ALARM)
     /*
      * There is only one timer, that used by alarm.
      * Setting alarm(0) will not set a new alarm, and
