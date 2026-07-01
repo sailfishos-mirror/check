@@ -1309,6 +1309,7 @@ changed like so:
 @example
 @verbatim
 include check_money.3-6.c.diff
+@end verbatim
 @end example
 @end cartouche
 
