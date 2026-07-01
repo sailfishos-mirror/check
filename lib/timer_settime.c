@@ -25,7 +25,7 @@ int timer_settime(timer_t timerid CK_ATTRIBUTE_UNUSED,
                   const struct itimerspec *new_value,
                   struct itimerspec *old_value CK_ATTRIBUTE_UNUSED)
 {
-#ifdef HAVE_SETITIMER
+#if defined(HAVE_SETITIMER)
     /*
      * If the system does not have timer_settime() but does have
      * setitimer() use that instead of alarm().
@@ -38,7 +38,7 @@ int timer_settime(timer_t timerid CK_ATTRIBUTE_UNUSED,
     interval.it_interval.tv_usec = new_value->it_interval.tv_nsec / 1000;
 
     return setitimer(ITIMER_REAL, &interval, NULL);
-#else
+#elif defined(HAVE_TIMER)
     int seconds = new_value->it_value.tv_sec;
 
     /* 
@@ -53,5 +53,9 @@ int timer_settime(timer_t timerid CK_ATTRIBUTE_UNUSED,
     alarm(seconds);
 
     return 0;
+#else
+  /*
+   * There is no support for timers on the platform.
+   */
 #endif
 }
