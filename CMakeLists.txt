@@ -171,7 +171,6 @@ ck_check_include_file("windows.h" HAVE_WINDOWS_H)
 
 ###############################################################################
 # Check functions
-check_function_exists(alarm HAVE_ALARM)
 check_function_exists(clock_gettime HAVE_CLOCK_GETTIME)
 check_function_exists(getline HAVE_GETLINE)
 check_function_exists(getpid HAVE_GETPID)
