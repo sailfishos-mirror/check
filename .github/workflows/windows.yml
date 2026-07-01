@@ -90,7 +90,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: install autotools
-      run: C:\msys64\msys2_shell.cmd -defterm -mingw64 -no-start -full-path -here -c "pacman -S autoconf-wrapper"
+      run: C:\msys64\msys2_shell.cmd -defterm -mingw64 -no-start -full-path -here -c "pacman --noconfirm -S autoconf-wrapper"
     - name: autoreconf
       run: C:\msys64\msys2_shell.cmd -defterm -mingw64 -no-start -full-path -here -c "autoreconf -i"
     - name: configure
