@@ -38,7 +38,7 @@ int timer_settime(timer_t timerid CK_ATTRIBUTE_UNUSED,
     interval.it_interval.tv_usec = new_value->it_interval.tv_nsec / 1000;
 
     return setitimer(ITIMER_REAL, &interval, NULL);
-#elif defined(HAVE_TIMER)
+#elif defined(HAVE_DECL_ALARM)
     int seconds = new_value->it_value.tv_sec;
 
     /* 
