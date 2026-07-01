@@ -20,7 +20,7 @@
 
 #include "libcompat.h"
 
-#if defined(HAVE_DECL_ALARM)
+#if defined(HAVE_UNISTD_H)
 #include <unistd.h>
 #endif
 
