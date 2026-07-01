@@ -20,6 +20,10 @@
 
 #include "libcompat.h"
 
+#if defined(HAVE_DECL_ALARM)
+#include <unistd.h>
+#endif
+
 int timer_delete(timer_t timerid CK_ATTRIBUTE_UNUSED)
 {
 #if defined(HAVE_SETITIMER)
