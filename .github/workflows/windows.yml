@@ -76,6 +76,8 @@ jobs:
       run: echo "::add-path::C:\msys64\usr\bin"
       env:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+    - name: install tools
+      run: bash -c "pacman --noconfirm -S autoconf-wrapper automake libtool pkgconf"
     - name: autoreconf
       run: bash -c "autoreconf -i"
     - name: configure
