@@ -77,7 +77,7 @@ jobs:
       env:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
     - name: install tools
-      run: bash -c "pacman --noconfirm -S autoconf-wrapper automake libtool pkgconf"
+      run: bash -c "pacman --noconfirm -S autoconf-wrapper automake libtool pkgconf texinfo"
     - name: autoreconf
       run: bash -c "autoreconf -i"
     - name: configure
@@ -92,7 +92,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: install autotools
-      run: C:\msys64\msys2_shell.cmd -defterm -mingw64 -no-start -full-path -here -c "pacman --noconfirm -S autoconf-wrapper automake libtool pkgconf"
+      run: C:\msys64\msys2_shell.cmd -defterm -mingw64 -no-start -full-path -here -c "pacman --noconfirm -S autoconf-wrapper automake libtool pkgconf texinfo"
     - name: autoreconf
       run: C:\msys64\msys2_shell.cmd -defterm -mingw64 -no-start -full-path -here -c "autoreconf -i"
     - name: configure
