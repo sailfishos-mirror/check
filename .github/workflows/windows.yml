@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build_windows_vs16_cmake:
+  build_windows_vs18_cmake:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
